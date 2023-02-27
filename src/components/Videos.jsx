@@ -13,6 +13,7 @@ export default function Videos({ videos, direction }) {
       {
         videos.map((item, index) => (
           <Box
+            sx={{  width: { xs: '100%', sm: '358px', md: '320px'}, }}
             key={index}
           >
             {item.id.videoId && <VideoCard video={item} />}
