@@ -39,7 +39,7 @@ export default function Feed() {
           Copyright 2022 Youtube Clone
         </Typography>
       </Box>
-      {/* Heading box */}
+      {/* Main box */}
       <Box
         p={2}
         sx={{
@@ -48,6 +48,7 @@ export default function Feed() {
           flex: 2
         }}
       >
+        {/* Heading */}
         <Typography
           variant="h4"
           fontWeight="bold"
@@ -57,7 +58,7 @@ export default function Feed() {
           {selectedCategory} <span style={{ color: '#f31503' }}>videos</span>
         </Typography>
 
-        {/* Videos box */}
+        {/* Videos */}
         <Videos videos={videos} />
       </Box>
     </Stack>
