@@ -5,16 +5,21 @@ export default function Videos({ videos, direction }) {
   if(!videos?.length) { return 'Loading...'}
   return (
     <Stack
-      direction={ direction || 'row' }
+      
       flexWrap='wrap'
-      justifyContent='start'
-      gap={2}
+      justifyContent='space-between'
+      sx={{
+        flexDirection: {xs: 'row', md: direction || 'row'}
+      }}
     >
       {
         videos.map((item, index) => (
-          <Box
-            sx={{  width: { xs: '100%', sm: '358px', md: '320px'}, }}
+          <Box 
             key={index}
+            sx={{
+              width: direction == 'column' ? {  xs: '100%', sm: '49%', md: '100%'} : {  xs: '100%', sm: '49%', lg: '32%'},
+              marginBottom: '16px'
+            }}
           >
             {item.id.videoId && <VideoCard video={item} />}
             {item.id.channelId && <ChannelCard channelDetail={item} />}

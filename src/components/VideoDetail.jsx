@@ -24,6 +24,10 @@ export default function VideoDetail() {
       .then((data) => setVideos(data.items));
   }, [id])
 
+  useEffect(() => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }, [id])
+
   if(!videoDetail?.snippet) return 'Loading...'
 
   const {
@@ -50,7 +54,7 @@ export default function VideoDetail() {
             >
               {/* Channel */}
               <Link to={`/channel/${channelId}`}>
-                <Typography variant={{ sm: 'subtitle1', md: 'h6'}} color="#fff">
+                <Typography variant='h6' color="#fff">
                   {channelTitle}
                   <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: '5px' }} />
                 </Typography>
@@ -69,7 +73,15 @@ export default function VideoDetail() {
         </Box>
 
         {/* Side videos */}
-        <Box px={2} py={{ md: 1, xs: 5 }} justifyContent='center' alignItems='center'>
+        <Box 
+          px={2} 
+          py={{ md: 1, xs: 5 }}
+          justifyContent='center'
+          alignItems='center'
+          sx={{
+            width: { md: '30%'}
+          }}
+        >
           <Videos videos={videos} direction='column' />
         </Box>
       </Stack>

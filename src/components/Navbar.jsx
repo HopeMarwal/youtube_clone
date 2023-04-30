@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { logo } from '../utils/constants'
+import  logo from '../assets/Icon.png';
 import SearchBar from './SearchBar';
 
 export default function Navbar() {
@@ -15,7 +15,7 @@ export default function Navbar() {
         to="/"
         style={{ display: 'flex', alignItems: 'center' }}
       >
-        <img src={logo} alt="logo" height={45} />
+        <img src={logo} alt="logo" width={45} />
       </Link>
 
       <SearchBar />
