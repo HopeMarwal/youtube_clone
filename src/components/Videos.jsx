@@ -5,7 +5,6 @@ export default function Videos({ videos, direction }) {
   if(!videos?.length) { return 'Loading...'}
   return (
     <Stack
-      
       flexWrap='wrap'
       justifyContent='space-between'
       sx={{

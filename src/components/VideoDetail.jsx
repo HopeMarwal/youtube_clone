@@ -8,7 +8,8 @@ import { Videos } from './'
 //API
 import { fetchFromAPI } from '../utils/fetchFromAPI'
 import ReactPlayer from 'react-player';
-
+//Months
+import { mS } from '../utils/constants';
 
 export default function VideoDetail() {
   const [videos, setVideos] = useState([])
@@ -31,9 +32,12 @@ export default function VideoDetail() {
   if(!videoDetail?.snippet) return 'Loading...'
 
   const {
-    snippet: { title, channelId, channelTitle },
+    snippet: { title, channelId, channelTitle, publishedAt },
     statistics: { viewCount, likeCount }
   } = videoDetail
+
+  const date = new Date(publishedAt)
+  const displayD = `${date.getDate()} ${mS[date.getMonth()]} ${date.getFullYear()}`
 
   return (
     <Box minHeight="95vh">
@@ -44,6 +48,9 @@ export default function VideoDetail() {
             <ReactPlayer className="react-player" url={`https://www.youtube.com/watch?v=${id}`} controls />
             <Typography color="#fff" variant='h5' fontWeight="bold" p={2}>
               { title }
+            </Typography>
+            <Typography color="#ccc" variant='span' p={2} fontSize='13px' >
+              { displayD }
             </Typography>
             <Stack
               direction='row'
@@ -74,7 +81,6 @@ export default function VideoDetail() {
 
         {/* Side videos */}
         <Box 
-          px={2} 
           py={{ md: 1, xs: 5 }}
           justifyContent='center'
           alignItems='center'

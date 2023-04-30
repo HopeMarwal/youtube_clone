@@ -13,13 +13,13 @@ export default function ChannelCard({ channelDetail, marginTop }) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: { xs: '100%', sm: '358px', md: '320px'},
+        width:'100%',
         height: '326px',
         margin: 'auto',
         marginTop
       }}
     >
-      <Link to={`/channel/${channelDetail?.id?.channelId}`}>
+      <Link to={`/channel/${channelDetail?.id}`}>
         <CardContent
           sx={{
             display: 'flex',
